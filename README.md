@@ -9,3 +9,6 @@ https://docs.livekit.io/reference/python/livekit/plugins/openai/realtime/realtim
 How to run the app Locally: 
 
 python agent.py console
+
+
+hallo 

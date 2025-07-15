@@ -42,3 +42,15 @@ URL: https://elevenlabs.io/app/voice-library
 -----------------------------------------------------------------
 frontend js conection for room: 
 https://docs.livekit.io/home/quickstarts/javascript/
+
+
+
+
+<!-- Call FastApi -->
+
+uvicorn auth:app --reload
+
+
+<!-- Path to single agent:  -->
+
+python app/services/agents/agent.py console

@@ -1,15 +1,16 @@
 
+import os 
 from livekit import api 
 from dotenv import load_dotenv
-import os 
+from fastapi import APIRouter, Request
 
-
-
+router = APIRouter()
 
 load_dotenv()
 
 
-def create_JWT_Auth_Token():
+@router.get('/getToken')
+async def create_JWT_Auth_Token(request: Request):
     token = api.AccessToken(os.getenv('LIVEKIT_API_KEY'), os.getenv('LIVEKIT_API_SECRET')) \
         .with_identity("identity") \
         .with_name("name") \
@@ -19,10 +20,5 @@ def create_JWT_Auth_Token():
         )).to_jwt()
 
 
-    return token
+    return {"token": token}
 
-
-if __name__ == "__main__":
-    token = create_JWT_Auth_Token()
-    print('token', token)
-    
